@@ -9,3 +9,7 @@ The purpose of the repo is to implement Amazon SES API.
 SES API Reference document can be found on the following link.
 
 http://s3.amazonaws.com/awsdocs/ses/latest/ses-api.pdf
+
+<h2>SES PHP Calling Methods</h2>
+
+http://www.orderingdisorder.com/aws/ses/

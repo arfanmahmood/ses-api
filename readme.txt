@@ -1,5 +1,6 @@
 Amazon Simple Email Service
 -----------------------------------------------
+Amazon SES is an outbound-only email-sending service that provides an easy, cost-effective way for you to send email. You can use Amazon SES to send marketing emails such as special offers, transactional emails such as order confirmations, and other types of correspondence such as newsletters.
 
 The purpose of the repo is to implement Amazon SES API.
 

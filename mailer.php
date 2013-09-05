@@ -33,8 +33,8 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
 <!-- Simple Email Form to Send -->
 <form action="" method="post" name="email">
   <label>Email:<br /><input type="text" name="email" value="" /></label><br /><br />
-  <label>Subject:<br /><input type="text" name="subject" value="" /></label><br /><br />
-  <label>Message:<br /><textarea name="message" cols="50" rows="5"></textarea></label><br /><br />
+  <!--<label>Subject:<br /><input type="text" name="subject" value="" /></label><br /><br />
+  <label>Message:<br /><textarea name="message" cols="50" rows="5"></textarea></label><br /><br />-->
   <input type="submit" value="Submit" />
   <input type="hidden" name="hdnSubmit" value="1">
 </form>

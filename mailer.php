@@ -6,13 +6,17 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
   $ses = new SimpleEmailService('Access Key Here', 'Secret Key Here');
   
   /* Going to define variables for subject and message */
+  $subject = "Real Estate Branding and Marketing by REMbrand";
+  $message = file_get_contents('http://www.rembrand.ca/resources/rembrand/newsletter/dec-2012/rembrand-newsletter.html');
+  $message = str_replace("{date}", date("F j, Y"), $message);
+  $message = str_replace("{name}", $_REQUEST['name'], $message);
   
   /* Initilizing Final SES Class */
   $m = new SimpleEmailServiceMessage();
   $m->addTo($_REQUEST['email']);
   $m->setFrom('donotreply@rembrand.ca');
-  $m->setSubject($_REQUEST['subject']);
-  $m->setMessageFromString($_REQUEST['message']);
+  $m->setSubject($subject);
+  $m->setMessageFromString(null,$message);
   
   print_r($ses->sendEmail($m));
   
@@ -28,6 +32,7 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
 <body>
 <!-- Simple Email Form to Send -->
 <form action="" method="post" name="email">
+  <label>Name:<br /><input type="text" name="name" value="" /></label><br /><br />
   <label>Email:<br /><input type="text" name="email" value="" /></label><br /><br />
   <input type="submit" value="Submit" />
   <input type="hidden" name="hdnSubmit" value="1">

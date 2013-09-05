@@ -5,11 +5,7 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
   require_once('ses.php');
   $ses = new SimpleEmailService('Access Key Here', 'Secret Key Here');
   
-  /* Script to Verify Email Address */
-  //print_r($ses->verifyEmailAddress('dev@zeewebtech.com'));
-  
-  /* Script to Check Verified Email Addresses List */
-  //print_r($ses->listVerifiedEmailAddresses());
+  /* Going to define variables for subject and message */
   
   /* Initilizing Final SES Class */
   $m = new SimpleEmailServiceMessage();
@@ -33,8 +29,6 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
 <!-- Simple Email Form to Send -->
 <form action="" method="post" name="email">
   <label>Email:<br /><input type="text" name="email" value="" /></label><br /><br />
-  <!--<label>Subject:<br /><input type="text" name="subject" value="" /></label><br /><br />
-  <label>Message:<br /><textarea name="message" cols="50" rows="5"></textarea></label><br /><br />-->
   <input type="submit" value="Submit" />
   <input type="hidden" name="hdnSubmit" value="1">
 </form>

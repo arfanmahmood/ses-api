@@ -31,6 +31,22 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
 
 <body>
 <!-- Simple Email Form to Send -->
+<?php
+if (($handle = fopen("file.csv", "r")) !== FALSE) {
+	
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		
+        for ($c=0; $c < count($data); $c++) {
+            echo $data[$c].' ';
+        }
+		
+		echo "<br />\n";
+		
+    }
+    fclose($handle);
+}
+?>
+
 <form action="" method="post" name="email">
   <label>Email:<br /><input type="text" name="email" value="" /></label><br /><br />
   <label>Subject:<br /><input type="text" name="subject" value="" /></label><br /><br />

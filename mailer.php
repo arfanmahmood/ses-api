@@ -13,37 +13,37 @@
   
   /* Going to define variables for subject and message */
   $subject = "Real Estate Branding and Marketing by REMbrand";
-  $message = file_get_contents('http://www.rembrand.ca/resources/rembrand/newsletter/dec-2012/rembrand-newsletter.html');
-  $message = str_replace("{date}", date("F j, Y"), $message);
   
 if (($handle = fopen("file.csv", "r")) !== FALSE) {
 	
-	$row = 0;
-	
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-		
-		if($row!=0){
-			
-			$message = str_replace("{name}", $data[0], $message);
-  			$message = str_replace("{email}", $data[1], $message);
 
-			/* Initilizing Final SES Class */
-			$m = new SimpleEmailServiceMessage();
-			$m->addTo($data[1]);
-			$m->setFrom('donotreply@rembrand.ca');
-			$m->setSubject($subject);
-			$m->setMessageFromString(null,$message);
-			
-			echo "Newsletter sent to ".$data[0]." (".$data[1].")<br />";
-			
-		}
+		$name = $data[0];
+		$email = $data[1];
+
+  		$message = file_get_contents('http://www.rembrand.ca/resources/rembrand/newsletter/dec-2012/rembrand-newsletter.html');
+  		$message = str_replace("{date}", date("F j, Y"), $message);
 		
-		$row++;
-		
+		$message = str_replace("{name}", $name, $message);
+		echo $message = str_replace("{email}", $email, $message);
+
+		/* Initilizing Final SES Class */
+		$m = new SimpleEmailServiceMessage();
+		$m->addTo($email);
+		$m->setFrom('donotreply@rembrand.ca');
+		$m->setSubject($subject);
+		$m->setMessageFromString(null,$message);
+
+		$ses->sendEmail($m);
+
+		echo "Newsletter sent to ".$name." (".$email.")<br />";
+
+
     }
+
     fclose($handle);
-}
-  
+
+}  
 ?>
 </body>
 </html>

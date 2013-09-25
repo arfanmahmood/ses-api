@@ -22,23 +22,23 @@ if (($handle = fopen("file.csv", "r")) !== FALSE) {
 	
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		
-		if($row==0){
+		if($row!=0){
 			
-			$name = $data[0];
-			$email = $data[1];
-			$message = str_replace("{name}", $name, $message);
-  			$message = str_replace("{email}", $email, $message);
+			$message = str_replace("{name}", $data[0], $message);
+  			$message = str_replace("{email}", $data[1], $message);
 
 			/* Initilizing Final SES Class */
 			$m = new SimpleEmailServiceMessage();
-			$m->addTo($_REQUEST['email']);
+			$m->addTo($data[1]);
 			$m->setFrom('donotreply@rembrand.ca');
 			$m->setSubject($subject);
 			$m->setMessageFromString(null,$message);
 			
-			print_r($ses->sendEmail($m));
+			echo "Newsletter sent to ".$data[0]." (".$data[1].")<br />";
 			
 		}
+		
+		$row++;
 		
     }
     fclose($handle);

@@ -10,6 +10,7 @@ if($_REQUEST['hdnSubmit']){ /* Checking if form submitted */
   $message = file_get_contents('http://www.rembrand.ca/resources/rembrand/newsletter/dec-2012/rembrand-newsletter.html');
   $message = str_replace("{date}", date("F j, Y"), $message);
   $message = str_replace("{name}", $_REQUEST['name'], $message);
+  $message = str_replace("{email}", $_REQUEST['email'], $message);
   
   /* Initilizing Final SES Class */
   $m = new SimpleEmailServiceMessage();

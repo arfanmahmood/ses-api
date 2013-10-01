@@ -38,7 +38,8 @@ if (($handle = fopen("file.csv", "r")) !== FALSE) {
 
 		echo "Newsletter sent to ".$name." (".$email.")<br />";
 
-
+		sleep(1);
+		
     }
 
     fclose($handle);

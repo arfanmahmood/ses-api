@@ -22,10 +22,10 @@ if (($handle = fopen("file-greetings.csv", "r")) !== FALSE) {
 		$email = $data[1];
 
   		$message = file_get_contents('http://www.rembrand.ca/resources/rembrand/newsletter/dec-2013/newyear-greetings.html');
-  		$message = str_replace("{date}", date("F j, Y"), $message);
+  		//$message = str_replace("{date}", date("F j, Y"), $message);
 		
-		$message = str_replace("{name}", $name, $message);
-		echo $message = str_replace("{email}", $email, $message);
+		//$message = str_replace("{name}", $name, $message);
+		//echo $message = str_replace("{email}", $email, $message);
 
 		/* Initilizing Final SES Class */
 		$m = new SimpleEmailServiceMessage();

@@ -10,6 +10,7 @@ SES API Reference document can be found on the following link.
 
 http://s3.amazonaws.com/awsdocs/ses/latest/ses-api.pdf
 
-<h2>SES PHP Calling Methods</h2>
+###SES PHP Calling Methods
 
 http://www.orderingdisorder.com/aws/ses/
+
